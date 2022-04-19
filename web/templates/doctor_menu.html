@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta charset="utf-8">
+    <title>Doctor Menu</title>
+</head>
+
+<body>
+    <a href="./"><button type="submit" name="to home" class="back_button">
+            < </button></a>
+    <h1 class="menu_header">Doctor Menu</h1>
+
+    <form action="./doc_menu" method="post">
+        <div style="position:absolute; left: 30.8%;top: 10%;width: 50%;height: 30%">
+            <table class="table_form" style="width: 30%;">
+                <tr>
+                    <th>Certificate</th>
+                    <th>Name</th>
+                    <th>Speciality</th>
+                </tr>
+                <tr>
+                    <td><input class="input_table" name="certificate"></td>
+                    <td><input class="input_table" name="name"></td>
+                    <td><input class="input_table" name="speciality"></td>
+                </tr>
+            </table>
+            <div style="position: absolute;left: 17%; top: 46%">
+                <button type="submit" class="button2" name="button" value="insert">Insert</button>
+                <button type="submit" class="button2" name="button" value="edit">Edit</button>
+                <button type="submit" class="button2" name="button" value="remove">Remove</button>
+            </div>
+        </div>
+
+        <div style="position: absolute;top: 30%;left: 28%;height: 67%; width: 42%; overflow: auto;">
+            <table style="position: absolute;">
+                <tr>
+                    <th>Certificate</th>
+                    <th>Name</th>
+                    <th>Speciality</th>
+                    <th>To Change</th>
+                </tr>
+                {% for column in cursor %}
+                <tr>
+                    <td>{{column[0]}}</td>
+                    <td>{{column[1]}}</td>
+                    <td>{{column[2]}}</td>
+                    <td>
+                        <label class="custom_checkbox" style="left: 40%;">
+                            <input type="checkbox" style="color: #232943;width: 20px; height: 20px; display: block;" name="checkbox" value="{{column[0]}}|{{column[1]}}|{{column[2]}}">
+                            <span></span>
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </form>
+</body>
+
+</html>

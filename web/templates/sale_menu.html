@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta charset="utf-8">
+    <title>Sale Menu</title>
+</head>
+
+<body>
+    <a href="./"><button type="submit" name="back_button" class="back_button">
+            < </button></a>
+    <h1 class="menu_header">Sale Menu</h1>
+
+    <form action="./sale_menu" method="post">
+        <div style="position:absolute; left: 29.15%;top: 10%;width: 50%;height: 30%">
+            <table class="table_form" style="position: absolute;left: 7%;top: 0%">
+                <tr>
+                    <th>Num</th>
+                    <th>Date</th>
+                    <th>Substance</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Institution</th>
+                </tr>
+                <tr>
+                    <td><input style="width:100%;" class="input_table" name="sale_num"></td>
+                    <td><input style="width:100%;" class="input_table" name="record_date"></td>
+                    <td><input style="width:100%;" class="input_table" name="substance"></td>
+                    <td><input style="width:100%;" class="input_table" name="subs_quant"></td>
+                    <td><input style="width:100%;" class="input_table" name="sale_price"></td>
+                    <td><input class="input_table" name="inst_name"></td>
+                </tr>
+            </table>
+            <div style="position: absolute;left: 33%; top: 43.8%; height: 15%;">
+                <button type="submit" style="width:150%;height:100%;" class="button2" name="button" value="buy">Buy</button>
+            </div>
+        </div>
+
+        <div style="position: absolute;top: 30%;left: 29%;height: 67%; width: 42%; overflow: auto;">
+            <table>
+                <tr>
+                    <th>Certificate #</th>
+                    <th>Patient #</th>
+                    <th>Prescription Date</th>
+                    <th>Substance</th>
+                    <th>Substance Quantity</th>
+                    <th>Prescription</th>
+                </tr>
+                {% for column in cursor %}
+                <tr>
+                    <td>{{column[0]}}</td>
+                    <td>{{column[1]}}</td>
+                    <td>{{column[2]}}</td>
+                    <td>{{column[3]}}</td>
+                    <td>{{column[4]}}</td>
+                    <td>
+                        <label class="custom_checkbox" style="left: 40%;">
+                            <input type="checkbox" style="color: #232943;width: 20px; height: 20px; display: block;" name="checkbox" value="{{column[0]}}|{{column[1]}}|{{column[2]}}|{{column[3]}}|{{column[4]}}">
+                            <span></span>
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </form>
+
+</body>
+
+</html>

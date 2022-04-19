@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta charset="utf-8">
+    <title>Analysis Menu</title>
+</head>
+
+<body>
+    <a href="./"><button type="submit" name="to home" class="back_button">
+            < </button></a>
+    <h1 class="menu_header">Analysis Menu</h1>
+    <form action="./analysis_menu" method="post">
+        <div style="position:absolute; left: 15%;top: 10%;width: 50%;height: 30%">
+            <table class="table_form">
+                <tr>
+                    <th>Num</th>
+                    <th>Speciality</th>
+                    <th>Certificate #</th>
+                    <th>Patient #</th>
+                    <th>Analysis Date</th>
+                    <th>Reg Date</th>
+                    <th>Name</th>
+                    <th>Substance Quantity</th>
+                    <th>Institution</th>
+                </tr>
+                <tr>
+                    <td><input style="width:100%;" class="input_table" name="analysis_num"></td>
+                    <td><input style="width:100%;" class="input_table" name="analysis_speciality"></td>
+                    <td><input style="width:100%;" class="input_table" name="certificate_num"></td>
+                    <td><input style="width:100%;" class="input_table" name="patient_num"></td>
+                    <td><input style="width:100%;" class="input_table" name="analysis_date"></td>
+                    <td><input class="input_table" name="reg_date"></td>
+                    <td><input class="input_table" name="analysis_name"></td>
+                    <td><input style="width:100%;" class="input_table" name="subs_quant"></td>
+                    <td><input class="input_table" name="institution_name"></td>
+                </tr>
+            </table>
+            <div style="position: absolute;left: 50%; top: 50%">
+                <button type="submit" class="button2" name="button" value="insert">Insert</button>
+                <button type="submit" class="button2" name="button" value="edit">Edit</button>
+                <button type="submit" class="button2" name="button" value="remove">Remove</button>
+            </div>
+        </div>
+
+        <div style="position: absolute;top: 30%;left: 19.5%;height: 67%; width: 61.45%; overflow: auto;">
+            <table style="position: absolute;">
+                <tr>
+                    <th>Num</th>
+                    <th>Speciality</th>
+                    <th>Certificate #</th>
+                    <th>Patient #</th>
+                    <th>Analysis Date</th>
+                    <th>Reg Date</th>
+                    <th>Name</th>
+                    <th>Substance Quantity</th>
+                    <th>Institution</th>
+                    <th>To Change</th>
+                </tr>
+                {% for column in cursor %}
+                <tr>
+                    <td>{{column[0]}}</td>
+                    <td>{{column[1]}}</td>
+                    <td>{{column[2]}}</td>
+                    <td>{{column[3]}}</td>
+                    <td>{{column[4]}}</td>
+                    <td>{{column[5]}}</td>
+                    <td>{{column[6]}}</td>
+                    <td>{{column[7]}}</td>
+                    <td>{{column[8]}}</td>
+                    <td>
+                        <label class="custom_checkbox" style="left: 30%;">
+                            <input type="checkbox" name="checkbox" value="{{column[0]}}|{{column[1]}}|{{column[2]}}|{{column[3]}}|{{column[4]}}|{{column[5]}}|{{column[6]}}|{{column[7]}}|{{column[8]}}">
+                            <span></span>
+                        </label>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </form>
+</body>
+
+</html>

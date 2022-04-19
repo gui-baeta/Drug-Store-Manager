@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <link rel="stylesheet" href="{{ url_for('static',filename='styles/main.css') }}">
+    <meta charset="utf-8">
+    <title>Odisseia</title>
+</head>
+
+<body>
+    <div style="position:absolute;left:23%; top:0%; width: 75%;height:100%">
+        <a href="inst_menu"><button style="left: 24%;" class="button1" type="submit" name="inst_menu">Institution menu</button></a>
+        <a href="doc_menu"><button style="left: 34.5%;" class="button1" type="submit" name="doc_menu">Doctor menu</button></a>
+        <a href="presc_menu"><button style="left: 42.5%;" class="button1" type="submit" name="presc_menu">Prescription menu</button></a>
+        <a href="analysis_menu"><button style="left: 53.5%;" class="button1" type="submit" name="analysis_menu">Analysis menu</button></a>
+        <a href="sale_menu"><button style="left: 62.5%;" class="button1" type="submit" name="sale_menu">Sale menu</button></a>
+    </div>
+    <header style="position: absolute; left: 35%;top: 30%; transform: translate(-30%, -70%);">
+        <form action="./list_presc" method="post">
+            <label for="doctor">Listar as substâncias prescritas pelo médico</label>
+            <input name="doctor">
+            <label for="month">no mês</label>
+            <input name="month">
+            <label for="year">do ano</label>
+            <input name="year">
+            <button type="submit" class="button2" name="list_presc">></button>
+        </form>
+    </header>
+    <header style="position: absolute; left: 23.9%; top: 37%;color: #E5F2FF;font-family: Source Code Pro;font-weight: 600;font-size: 15px;">
+        <form action="./list_glicemia" method="post">
+            Listar os valores de glicémia mais alto e mais baixo em cada concelho e respectivo doente
+            <button type="submit" class="button2">></button>
+        </form>
+    </header>
+</body>
+
+</html>
