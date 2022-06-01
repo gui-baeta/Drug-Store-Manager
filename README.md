@@ -1,4 +1,4 @@
-# Tridimensional Animation and Visualization Course Project
+# DataBase Course Project
 Simple Drug Store Manager Web App built using Python Flask and PostgreSQL
 
 # Group:
