@@ -10,10 +10,10 @@ import copy
 app = Flask(__name__)
 
 # SGBD configs
-DB_HOST = "db.tecnico.ulisboa.pt"
-DB_USER = "ist192470"
+DB_HOST = "<HOST>"
+DB_USER = "<USER>"
 DB_DATABASE = DB_USER
-DB_PASSWORD = "ph#YH9x"
+DB_PASSWORD = "<PASSWORD>"
 DB_CONNECTION_STRING = "host={} dbname={} user={} password={}".format(
     DB_HOST, DB_DATABASE, DB_USER, DB_PASSWORD)
 
